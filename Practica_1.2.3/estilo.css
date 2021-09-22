@@ -1,0 +1,27 @@
+h1 {
+    color: gold;
+}
+h2 {
+    color: gold;
+}
+h3 {
+    color: gold;
+}
+h4 {
+    color: gold;
+}
+body {
+    height:auto;
+    background-image: url("https://us.123rf.com/450wm/meepoohyaphoto/meepoohyaphoto1309/meepoohyaphoto130900355/22268211-la-imagen-de-fondo-azul-del-diseño-.jpg?ver=6");
+    background-repeat: repeat-y;
+    background-size: 100rem;
+    line-height:  150%;
+    font: oblique bold 120% italic;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+ol {
+    line-height:  150%; 
+}

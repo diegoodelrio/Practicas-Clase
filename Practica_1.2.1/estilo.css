@@ -1,0 +1,19 @@
+h1{
+    color:navy;
+}
+body {
+    height: auto;
+    background-image: url("https://previews.123rf.com/images/castecodesign/castecodesign1512/castecodesign151200088/49362895-acanto-del-estampado-ornamento-clásico-vector.jpg");
+    background-repeat: repeat-y;
+    background-size: 100rem;
+}
+p{
+    color:navy;
+    line-height:150%;
+    font: oblique bold 120% cursive;
+}
+ul{
+    color:navy;
+    line-height:150%;
+    font: oblique bold 120% cursive;
+}
