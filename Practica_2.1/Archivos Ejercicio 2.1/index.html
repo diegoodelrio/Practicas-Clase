@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Diego Del Rio">
+  <link rel="stylesheet" type="text/css" media="screen" href="estilo.css"> 
+  <script src="main.js"></script>
+</head>
+<body>
+  <div id="calculadora">
+    <div id="calculo">
+      <h1>
+        Calculadora de CORE
+      </h1>
+      Número:
+      <input type="text" id="pantalla" onclick="vaciar()">
+      <h2 id="info" class="grande" title="Info sobre el número">
+        Info del número
+      </h2>
+    </div>
+    <div id="botones">
+      <h3>
+        Operaciones Unitarias
+      </h3>
+
+      <button id="cuadrado" onclick="cuadrado()">x<sup>2</sup></button>
+      <button id="cubo" onclick="cubo()">x<sup>3</sup></button>
+      <button id="modulo" onclick="mod()">mod()</button>
+      <button id="factorial" onclick="fact()">x!</button>
+
+      <h3>
+        Operaciones Binarias
+      </h3>
+
+      <button id="suma" onclick="add()">+</button>
+      <button id="resta" onclick="res()">-</button>
+      <button id="multiplicacion" onclick="mul()">x</button>
+      <button id="division" onclick="div()">÷</button>
+      <button id="igual" onclick="eq()">=</button>
+
+      <h3>
+        Operaciones en formato CSV
+      </h3>
+
+      <button id="sumatorio" onclick="sumatorio()">sumatorio</button>
+      <button id="ordenar" onclick="ordenar()">ordenar</button>
+      <button id="revertir" onclick="revertir()">revertir</button>
+      <button id="quitar" onclick="quitar()">quitar</button>
+
+    </div>
+  </div>
+</body>
+</html>
