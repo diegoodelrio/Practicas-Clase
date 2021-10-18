@@ -53,14 +53,15 @@ class Player extends Character {
             document.getElementById('livesli').innerHTML = `Lives: ${this.lives}`;
 
             setTimeout(() => {
+                super.collide(this.image.src = this.myImage);
                 this.dead = false;
-                super.collide(this.myImage);
             }, 2000);
-        }
         
-        if (this.lives === 0){  
+            if (this.lives === 0){  
+                this.game.endGame(); 
+            }
             super.collide();
-            this.game.endGame(); 
         }
+
     }
 }
