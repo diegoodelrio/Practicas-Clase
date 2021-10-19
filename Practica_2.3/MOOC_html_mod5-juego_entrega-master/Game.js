@@ -207,9 +207,15 @@ class Game {
      * Termina el juego
      */
     endGame () {
-        this.ended = true;
-        let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE)
-        gameOver.render();
+        if (this.ended === true) {
+            if (this.player.lives > 0) {
+                let youwin = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, WIN_PICTURE)
+                youwin.render();
+            } else{
+                let gameOver = new Entity(this, this.width / 2, "auto", this.width / 4, this.height / 4, 0, GAME_OVER_PICTURE)
+                gameOver.render();
+            }
+        }
     }
 
     /**

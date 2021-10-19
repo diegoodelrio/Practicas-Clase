@@ -1,22 +1,32 @@
 /**
- * Monstruo al que tenemos que destruir
+ * Monstruo supremo al que tenemos que destruir
  */
 class Boss extends Opponent {
     /**
-     * Inicializa un jugador
-     * @param game {Game} La instancia del juego al que pertenece el jugador
+     * @param game {Game} La instancia del juego al que pertenece el jefe
      */
-     constructor (game) {
-        const height = OPPONENT_HEIGHT * game.width / 100,
-            width = OPPONENT_WIDTH * game.width / 100,
-            x = getRandomNumber(game.width - width / 2),
-            y = 0,
-            speed = OPPONENT_SPEED,
-            myImage = OPPONENT_PICTURE,
-            myImageDead = OPPONENT_PICTURE_DEAD;
+    constructor (game) {
+        const bossImageDead = BOSS_PICTURE_DEAD,
+        bossImage = BOSS_PICTURE,
+        bossSpeed = BOSS_SPEED;
 
-        super(game, width, height, x, y, speed, myImage, myImageDead);
-        this.direction = "R"; // Dirección hacia la que se mueve el oponente
-        setTimeout(() => this.shoot(), 1000 + getRandomNumber(2500));
+        super(game, bossImageDead, bossImage, bossSpeed);
+
+    }
+
+    /**
+     * Mata al jefe
+     */
+    collide(){
+        if (!this.dead) {
+            
+            this.game.score += 5;
+            document.getElementById('scoreli').innerHTML = `Score: ${game.score}`;
+            
+            setTimeout(() => {
+                this.game.removeOpponent();
+            }, 2000);
+            super.collide();
+        }
     }
 }
