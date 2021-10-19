@@ -1,16 +1,18 @@
 /**
- * Monstruo supremo al que tenemos que destruir
+ * Monstruo al que tenemos que destruir
  */
 class Boss extends Opponent {
-    /**
-     * @param game {Game} La instancia del juego al que pertenece el jefe
-     */
+    
     constructor (game) {
         const bossImageDead = BOSS_PICTURE_DEAD,
-        bossImage = BOSS_PICTURE,
-        bossSpeed = BOSS_SPEED;
+            bossImage = BOSS_PICTURE,
+            bossSpeed = BOSS_SPEED;
 
         super(game, bossImageDead, bossImage, bossSpeed);
+
+        this.myImageDead = bossImageDead;
+        this.image.src = bossImage;
+        this.speed = bossSpeed;
 
     }
 
@@ -18,15 +20,7 @@ class Boss extends Opponent {
      * Mata al jefe
      */
     collide(){
-        if (!this.dead) {
-            
-            this.game.score += 5;
-            document.getElementById('scoreli').innerHTML = `Score: ${game.score}`;
-            
-            setTimeout(() => {
-                this.game.removeOpponent();
-            }, 2000);
-            super.collide();
-        }
+        super.collide();
+        this.game.endGame();
     }
 }
