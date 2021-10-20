@@ -1,3 +1,11 @@
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(/Users/diegodelrio/Desktop/Practicas-Clase/Practica_2.3/MOOC_html_mod5-juego_entrega-master/assets/953049718ed8816ffef507459cc9e679.gif);
+}
+
+ul{
+	color: white;
+}
+
 html {
   overflow: hidden;
 }
@@ -8,6 +16,16 @@ html {
 }
 
 .paused .Opponent {
+	animation: none;
+	-webkit-animation: none;
+}
+
+.Boss {
+	animation: rotation 3s infinite linear;
+	-webkit-animation: rotation 3s infinite linear;
+}
+
+.paused .Boss {
 	animation: none;
 	-webkit-animation: none;
 }
