@@ -45,7 +45,9 @@ class Player extends Character {
     }
 
     /**
-     * Mata al jugador
+     * Mata al jugador.
+     * 
+     * Cuando el jugador sea alcanzado se le quitara una vida, una vez sea alcanzado tres veces acabara el juego
      */
     collide() {
         if (!this.dead) {

@@ -85,6 +85,8 @@ class Game {
 
     /**
      * Elimina al oponente del juego
+     * 
+     * Si el oponente eliminado era de tipo Opponent lo que hara sera generar un nuevo oponente pero siendo esta vez un de tipo Boss
      */
     removeOpponent () {
         if (this.opponent) {
@@ -208,6 +210,8 @@ class Game {
 
     /**
      * Termina el juego
+     * 
+     * Si el oponente final muere el jugador gana, si el jugador acaba con 0 vidas este pierde.
      */
     endGame () {
         this.ended = true;
