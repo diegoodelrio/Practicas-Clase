@@ -1,3 +1,23 @@
+require('dotenv').config();
+
+//MONGOOSE CONNECTION
+mongoose.connect(process.env.MONGODB_URI,{
+    useNewUrIParse: true,
+    useUnifiedTopology: true,
+});
+
+//SESSION MIDDLEWARE
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: false,
+        store: new MongoStore({
+            mongooseConnection: mongoose.connection,
+            ttl: 60 * 60 * 24 * 7,
+        }),
+    })
+);
 
 // MODELO DE DATOS
 let mis_peliculas_iniciales = [
