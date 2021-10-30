@@ -1,20 +1,20 @@
-require('dotenv').config();
+require('dotenv').config(); //Hace que me desaparezca todo ARREGLAR.
 
-//MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGODB_URI,{
-    useNewUrIParse: true,
+// MONGOOSE CONNECTION
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParse: true,
     useUnifiedTopology: true,
 });
 
-//SESSION MIDDLEWARE
+// SESSION MIDDLEWARE
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
         resave: true,
-        saveUninitialized: false,
-        store: new MongoStore({
+        saveUninitialized: false, 
+        store: new Mongostore({
             mongooseConnection: mongoose.connection,
-            ttl: 60 * 60 * 24 * 7,
+            ttl: 60*60*24*7,
         }),
     })
 );
@@ -45,12 +45,29 @@ const postAPI = async (peliculas) => {
 }
 const getAPI = async () => {
     // Completar: Llamar a la API para leer la información guardada en myjson a través de la API
-    
+    try {
+        const res = await fetch(localStorage.URL);
+        return res.json();
+
+    } catch(err){
+        alert("No se ha podido leer la informacion")
+    }
            
 }
 
 const updateAPI = async (peliculas) => {
     // Completar: Actualizar la información a través de la API
+    try{
+        await fetch(localStorage.URL, {
+            method: 'PUT',
+            headers:{
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(peliculas)
+        });
+    } catch(err){
+        alert("No se a podido actualizar la indormacion deseada.")
+    }
 }
  
   
@@ -205,13 +222,17 @@ const deleteContr = async (i) => {
     if (spam == true){
         mis_peliculas.splice(i, 1); //Elimina la pelicula i del array/lista.
         await updateAPI(mis_peliculas);
+        await indexContr();
     } else{
-        indexContr();
+        await indexContr();
     }
 }
  
 const resetContr = async () => {
     // Completar:  controlador que reinicia el modelo guardado en myjson con las películas originales
+    mis_peliculas = [...mis_peliculas_iniciales];
+    await updateAPI(mis_peliculas);
+    await indexContr();
 }
  
 // ROUTER de eventos
