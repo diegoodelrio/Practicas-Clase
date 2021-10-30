@@ -1,24 +1,3 @@
-require('dotenv').config(); //Hace que me desaparezca todo ARREGLAR.
-
-// MONGOOSE CONNECTION
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParse: true,
-    useUnifiedTopology: true,
-});
-
-// SESSION MIDDLEWARE
-app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        resave: true,
-        saveUninitialized: false, 
-        store: new Mongostore({
-            mongooseConnection: mongoose.connection,
-            ttl: 60*60*24*7,
-        }),
-    })
-);
-
 // MODELO DE DATOS
 let mis_peliculas_iniciales = [
     {titulo: "Superlópez",   director: "Javier Ruiz Caldera", "miniatura": "files/superlopez.png"},
